@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inscrição - Conferência</title>
+		
+		<link 
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" 
+			rel="stylesheet" 
+			id="bootstrap-css"
+		>
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" 
+			defer
+		></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js" defer></script>
+		
+	</head>
+	<body>
+		<header>
+			<h2 style="text-align: center;">Inscrição para o curso de Angular 2.0</h2>		
+		</header>
+		
+		<div class="container col-sm-12 col-md-6 col-md-offset-2" style="margin-bottom: 1rem;">
+			<form action="/register" th:object="${register}" method="post">
+				<input type="hidden" th:field="*{registrationNumber}" />
+				
+				<section class="form-group">
+					<label for="name">Nome</label>
+					<input 
+						type="text" 
+						th:field="*{name}" 
+						th:value="${name}"
+						placeholder="Qual seu nome?"
+						class="form-control" 
+						size="40" 
+						required
+					/>
+				</section>
+			
+				<section class="form-group">
+					<label for="age">Idade:</label>
+					<input 
+						type="number"
+						th:field="*{age}"
+						th:value="${age}" 
+						placeholder="Informe sua idade" 
+						size="30" 
+						class="form-control" 
+						required
+					/>
+				</section>
+				
+				<section class="form-group">
+					<label for="email">E-mail:</label>
+					<input 
+						type="email" 
+						th:field="*{email}" 
+						th:value="${email}"
+						placeholder="Digite seu e-mail para receber o certificado"  
+						size="40" 
+						class="form-control" 
+						required
+					/>
+				</section>
+				
+				<section class="form-group">
+					<label for="levelKnowledgeJS">Qual seu nível de conhecimento em JavaScript?</label>				
+					<select class="form-control" th:field="*{levelKnowledgeJS}">
+						<option th:value="''">--Selecione--</option>
+						<option 
+							th:each="levelKnowledgeJS : ${T(com.example.demo.model.LevelKnowledgeJS).values()}"
+							th:text="${levelKnowledgeJS}"
+							th:value="${levelKnowledgeJS}"
+						></option>
+					</select> 
+					
+				</section>
+				
+				<section class="form-group">
+					<span>Você é estudante do IFPE?</span> 
+					
+					<input
+						type="radio" 
+						th:field="*{isIFPEStudent}" 
+						th:value="true"
+					/>
+					<label for="isIFPEStudent">Sim</label>
+					
+					<input 
+						type="radio" 
+						th:field="*{isIFPEStudent}" 
+						th:value="false" 
+					/>
+					<label for="isIFPEStudent">Não</label>
+				</section>
+				
+				<section class="form-group">
+					<label for="enrollment">Matrícula:</label>
+					<input 
+						type="number" 
+						th:field="*{enrollment}" 
+						th:value="${enrollment}" 
+						placeholder="Digite a matrícula" 
+						size="20" 
+						class="form-control" 
+						required
+					/>
+				
+				</section>
+				
+				<section class="form-group">
+					<label for="shift">Qual o seu turno?</label>
+					<select class="form-control" th:field="*{shift}">
+						<option th:value="''">--Selecione--</option>
+						<option 
+							th:each="shift : ${T(com.example.demo.model.Shift).values()}"	
+							th:text="${shift}"
+							th:value="${shift}"
+						></option>
+					</select> 
+				</section>
+				
+				<section class="form-group">
+					<label for="payment">Pagamento</label>
+					<select class="form-control" th:field="*{payment}">
+						<option th:value="''">--Selectione--</option>
+						<option 
+							th:each="payment : ${T(com.example.demo.model.Payment).values()}"
+							th:text="${payment}"
+							th:value="${payment}"
+						></option>
+					</select>
+				</section>
+				
+				<button class="btn btn-primary" style="margin-top: 1rem;" type="submit">Realizar inscrição</button>
+			</form>
+		</div>
+	</body>
+</html>

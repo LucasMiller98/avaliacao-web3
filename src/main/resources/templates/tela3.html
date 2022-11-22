@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inscrição</title>
+		
+		<link 
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" 
+			rel="stylesheet" 
+			id="bootstrap-css"
+		>
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" defer
+		></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js" defer></script>
+		
+		<style>
+			.header-initial-screen {
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				font-size: 6rem;	
+			}
+			
+			main {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				height: 70vh;
+			}
+			
+			main p {
+				font-size: 4rem;
+			}
+						
+		</style>
+		
+	</head>
+	<body>
+		<header class="header-initial-screen">		
+			<a href="/" class="btn btn-primary">Voltar para o menu</a>
+
+			<h3>Inscrição realizada com sucesso!</h3>
+			
+			<a href="/listRegisters" class="btn btn-primary">Listar inscritos</a>
+			
+		</header>
+		
+		<main>
+			<p>
+				Muito bem, <span th:text="${name}"></span>!
+			</p>		
+		</main>
+	</body>
+</html>
