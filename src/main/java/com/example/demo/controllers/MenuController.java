@@ -8,7 +8,7 @@ import com.example.demo.model.Register;
 @Controller
 public class MenuController {
 	
-	@GetMapping("/")
+	@GetMapping("/menu")
 	public String handleMenuScreen() {
 		return "tela1";
 	}

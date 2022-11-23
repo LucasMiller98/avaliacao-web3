@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.model.Payment;
 import com.example.demo.model.Register;
 import com.example.demo.repository.RegisterRepository;
 
@@ -16,7 +18,7 @@ public class RegisterController {
 	public RegisterRepository repo;
 	
 	@PostMapping("/register")
-	public String savedRegister(Register register, Model model) {
+	public String savedRegister(Register register, Model model, Payment payment) {
 		model.addAttribute("name", register.getName());
 		repo.save(register);
 		return "tela3";
